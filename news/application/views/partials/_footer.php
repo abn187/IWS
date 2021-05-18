@@ -23,21 +23,12 @@
             <!-- footer widget random posts-->
             <div class="col-sm-4 col-xs-12">
                 <!--Include footer random posts partial-->
-                <?php $this->load->view('partials/_footer_random_posts'); ?>
             </div><!-- /.col-sm-4 -->
 
 
             <!-- footer widget follow us-->
             <div class="col-sm-4 col-xs-12">
-                <div class="col-sm-12 footer-widget f-widget-follow">
-                    <div class="row">
-                        <h4 class="title"><?php echo trans("footer_follow"); ?></h4>
-                        <ul>
-                            <!--Include social media links-->
-                            <?php $this->load->view('partials/_social_media_links', ['rss_hide' => false]); ?>
-                        </ul>
-                    </div>
-                </div>
+
                 <?php if ($this->general_settings->newsletter == 1): ?>
                     <!-- newsletter -->
                     <div class="col-sm-12">

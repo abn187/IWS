@@ -144,19 +144,6 @@
                 <!--include next previous post -->
                 <?php $this->load->view('post/_post_next_prev', ['previous_post' => $previous_post, 'next_post' => $next_post]); ?>
 
-                <?php if ($this->general_settings->emoji_reactions == 1): ?>
-                    <div class="col-sm-12 col-xs-12">
-                        <div class="row">
-                            <div class="reactions noselect">
-                                <h4 class="title-reactions"><?php echo trans("whats_your_reaction"); ?></h4>
-                                <div id="reactions_result">
-                                    <?php $this->load->view('partials/_emoji_reactions'); ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endif; ?>
-
                 <!--Include banner-->
                 <?php $this->load->view("partials/_ad_spaces", ["ad_space" => "post_bottom", "class" => "bn-p-b"]); ?>
 

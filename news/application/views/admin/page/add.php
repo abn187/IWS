@@ -42,12 +42,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label"><?php echo trans('keywords'); ?> (<?php echo trans('meta_tag'); ?>)</label>
-                        <input type="text" class="form-control" name="keywords"
-                               placeholder="<?php echo trans('keywords'); ?> (<?php echo trans('meta_tag'); ?>)" value="<?php echo old('keywords'); ?>" <?php echo ($this->rtl == true) ? 'dir="rtl"' : ''; ?>>
-                    </div>
-
-                    <div class="form-group">
                         <label><?php echo trans("language"); ?></label>
                         <select name="lang_id" class="form-control" onchange="get_menu_links_by_lang(this.value);" style="max-width: 600px;">
                             <?php foreach ($this->languages as $language): ?>
@@ -124,24 +118,6 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-sm-3 col-xs-12">
-                                <label><?php echo trans('show_only_registered'); ?></label>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-12 col-option">
-                                <input type="radio" name="need_auth" value="1" id="need_auth_enabled"
-                                       class="square-purple" <?php echo (old("need_auth") == 1) ? 'checked' : ''; ?>>
-                                <label for="need_auth_enabled" class="option-label"><?php echo trans('yes'); ?></label>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-12 col-option">
-                                <input type="radio" name="need_auth" value="0" id="need_auth_disabled"
-                                       class="square-purple" <?php echo (old("need_auth") == 0 || old("need_auth") == "") ? 'checked' : ''; ?>>
-                                <label for="need_auth_disabled" class="option-label"><?php echo trans('no'); ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-3 col-xs-12">
                                 <label><?php echo trans('show_title'); ?></label>
                             </div>
                             <div class="col-md-2 col-sm-4 col-xs-12 col-option">
@@ -153,42 +129,6 @@
                                 <input type="radio" name="title_active" value="0" id="title_disabled"
                                        class="square-purple" <?php echo (old("title_active") == 0 && old("title_active") != "") ? 'checked' : ''; ?>>
                                 <label for="title_disabled" class="option-label"><?php echo trans('no'); ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-3 col-xs-12">
-                                <label><?php echo trans('show_breadcrumb'); ?></label>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-12 col-option">
-                                <input type="radio" name="breadcrumb_active" value="1" id="breadcrumb_enabled"
-                                       class="square-purple" <?php echo (old("breadcrumb_active") == 1 || old("breadcrumb_active") == "") ? 'checked' : ''; ?>>
-                                <label for="breadcrumb_enabled" class="option-label"><?php echo trans('yes'); ?></label>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-12 col-option">
-                                <input type="radio" name="breadcrumb_active" value="0" id="breadcrumb_disabled"
-                                       class="square-purple" <?php echo (old("breadcrumb_active") == 0 && old("breadcrumb_active") != "") ? 'checked' : ''; ?>>
-                                <label for="breadcrumb_disabled" class="option-label"><?php echo trans('no'); ?></label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-sm-3 col-xs-12">
-                                <label><?php echo trans('show_right_column'); ?></label>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-12 col-option">
-                                <input type="radio" name="right_column_active" value="1" id="right_column_enabled"
-                                       class="square-purple" <?php echo (old("right_column_active") == 1 || old("right_column_active") == "") ? 'checked' : ''; ?>>
-                                <label for="right_column_enabled" class="option-label"><?php echo trans('yes'); ?></label>
-                            </div>
-                            <div class="col-md-2 col-sm-4 col-xs-12 col-option">
-                                <input type="radio" name="right_column_active" value="0" id="right_column_disabled"
-                                       class="square-purple" <?php echo (old("right_column_active") == 0 && old("right_column_active") != "") ? 'checked' : ''; ?>>
-                                <label for="right_column_disabled" class="option-label"><?php echo trans('no'); ?></label>
                             </div>
                         </div>
                     </div>
