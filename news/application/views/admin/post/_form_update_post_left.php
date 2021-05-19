@@ -171,16 +171,7 @@
             <input type="hidden" name="is_recommended" value="<?php echo $post->is_recommended; ?>">
         <?php endif; ?>
 
-        <div class="form-group">
-            <div class="row">
-                <div class="col-md-4 col-sm-12">
-                    <label class="control-label"><?php echo trans('show_only_registered'); ?></label>
-                </div>
-                <div class="col-md-8 col-sm-12">
-                    <input type="checkbox" name="need_auth" value="1" class="square-purple" <?php echo ($post->need_auth == 1) ? 'checked' : ''; ?>>
-                </div>
-            </div>
-        </div>
+        
         <?php if ($post->post_type == 'sorted_list' || $post->post_type == 'gallery'): ?>
             <div class="form-group">
                 <div class="row">
@@ -199,10 +190,7 @@
             <input id="tags_1" type="text" name="tags" class="form-control tags" value="<?php echo html_escape($tags); ?>"/>
             <small>(<?php echo trans('type_tag'); ?>)</small>
         </div>
-        <div class="form-group row-optional-url">
-            <label class="control-label"><?php echo trans('optional_url'); ?></label>
-            <input type="text" class="form-control" name="optional_url" placeholder="<?php echo trans('optional_url'); ?>" value="<?php echo html_escape($post->optional_url); ?>" <?php echo ($this->rtl == true) ? 'dir="rtl"' : ''; ?>>
-        </div>
+        
     </div>
 </div>
 

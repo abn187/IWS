@@ -24,19 +24,7 @@
             </select>
         </div>
 
-        <div class="item-table-filter">
-            <label><?php echo trans("post_type"); ?></label>
-            <select name="post_type" class="form-control">
-                <option value=""><?php echo trans("all"); ?></option>
-                <option value="article" <?php echo ($this->input->get('post_type', true) == 'article') ? 'selected' : ''; ?>><?php echo trans("article"); ?></option>
-                <option value="gallery" <?php echo ($this->input->get('post_type', true) == 'gallery') ? 'selected' : ''; ?>><?php echo trans("gallery"); ?></option>
-                <option value="sorted_list" <?php echo ($this->input->get('post_type', true) == 'sorted_list') ? 'selected' : ''; ?>><?php echo trans("sorted_list"); ?></option>
-                <option value="trivia_quiz" <?php echo ($this->input->get('post_type', true) == 'trivia_quiz') ? 'selected' : ''; ?>><?php echo trans("trivia_quiz"); ?></option>
-                <option value="personality_quiz" <?php echo ($this->input->get('post_type', true) == 'personality_quiz') ? 'selected' : ''; ?>><?php echo trans("personality_quiz"); ?></option>
-                <option value="video" <?php echo ($this->input->get('post_type', true) == 'video') ? 'selected' : ''; ?>><?php echo trans("video"); ?></option>
-                <option value="audio" <?php echo ($this->input->get('post_type', true) == 'audio') ? 'selected' : ''; ?>><?php echo trans("audio"); ?></option>
-            </select>
-        </div>
+        
 
         <?php if (check_user_permission('manage_all_posts')): ?>
             <div class="item-table-filter">
@@ -68,25 +56,6 @@
                     </option>
                 <?php endforeach; ?>
             </select>
-        </div>
-
-        <div class="item-table-filter">
-            <div class="form-group">
-                <label class="control-label"><?php echo trans('subcategory'); ?></label>
-                <select id="subcategories" name="subcategory" class="form-control">
-                    <option value=""><?php echo trans("all"); ?></option>
-                    <?php
-                    if (!empty($this->input->get('category', true))):
-                        $subcategories = get_subcategories($this->input->get('category', true), $this->categories);
-                        if (!empty($subcategories)) {
-                            foreach ($subcategories as $item): ?>
-                                <option value="<?php echo $item->id; ?>" <?php echo ($this->input->get('subcategory', true) == $item->id) ? 'selected' : ''; ?>><?php echo $item->name; ?></option>
-                            <?php endforeach;
-                        }
-                    endif;
-                    ?>
-                </select>
-            </div>
         </div>
 
         <div class="item-table-filter">

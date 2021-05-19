@@ -184,17 +184,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="form-group row-optional-url">
-            <div class="row">
-                <div class="col-sm-12">
-                    <label class="control-label"><?php echo trans('optional_url'); ?></label>
-                    <input type="text" class="form-control"
-                           name="optional_url" placeholder="<?php echo trans('optional_url'); ?>"
-                           value="<?php echo old('optional_url'); ?>" <?php echo ($this->rtl == true) ? 'dir="rtl"' : ''; ?>>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 

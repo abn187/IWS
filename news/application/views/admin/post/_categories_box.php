@@ -24,15 +24,9 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="form-group m-0">
-                <label class="control-label"><?php echo trans('subcategory'); ?></label>
-                <select id="subcategories" name="subcategory_id" class="form-control">
-                    <option value="0"><?php echo trans('select_category'); ?></option>
-                    <?php foreach ($subcategories as $item): ?>
-                        <option value="<?php echo html_escape($item->id); ?>" <?php echo ($item->id == $subcategory_id) ? 'selected' : ''; ?>><?php echo html_escape($item->name); ?></option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
+
+            
+            
         <?php else: ?>
             <div class="form-group">
                 <label><?php echo trans("language"); ?></label>
@@ -55,12 +49,9 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div class="form-group m-0">
-                <label class="control-label"><?php echo trans('subcategory'); ?></label>
-                <select id="subcategories" name="subcategory_id" class="form-control">
-                    <option value="0"><?php echo trans('select_category'); ?></option>
-                </select>
-            </div>
+
+           
+
         <?php endif; ?>
     </div>
 </div>

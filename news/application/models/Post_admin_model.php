@@ -259,17 +259,7 @@ class Post_admin_model extends CI_Model
         return $query->row()->count;
     }
 
-    //get scheduled posts count
-    public function get_scheduled_posts_count()
-    {
-        $sql = "SELECT COUNT(id) AS count FROM posts WHERE status = 1 AND is_scheduled = 1";
-        $query = $this->db->query($sql);
-        if (!check_user_permission('manage_all_posts')) {
-            $sql = "SELECT COUNT(id) AS count FROM posts WHERE status = 1 AND is_scheduled = 1 AND user_id = ?";
-            $query = $this->db->query($sql, array(clean_number($this->auth_user->id)));
-        }
-        return $query->row()->count;
-    }
+    
 
     //filter by values
     public function filter_posts()
@@ -385,28 +375,6 @@ class Post_admin_model extends CI_Model
         return $query->row()->count;
     }
 
-    //get paginated scheduled posts
-    public function get_paginated_scheduled_posts($per_page, $offset)
-    {
-        $this->filter_posts();
-        $this->db->where('posts.status', 1);
-        $this->db->where('posts.is_scheduled', 1);
-        $this->db->order_by('posts.created_at', 'DESC');
-        $this->db->limit($per_page, $offset);
-        $query = $this->db->get('posts');
-        return $query->result();
-    }
-
-    //get paginated scheduled posts count
-    public function get_paginated_scheduled_posts_count()
-    {
-        $this->filter_posts();
-        $this->db->select('COUNT(posts.id) as count');
-        $this->db->where('posts.status', 1);
-        $this->db->where('posts.is_scheduled', 1);
-        $query = $this->db->get('posts');
-        return $query->row()->count;
-    }
 
     //get paginated drafts
     public function get_paginated_drafts($per_page, $offset)
@@ -556,31 +524,6 @@ class Post_admin_model extends CI_Model
     {
         $sql = "UPDATE posts SET created_at = CURRENT_TIMESTAMP(), is_scheduled = 0 WHERE id = ?";
         return $this->db->query($sql, array(clean_number($id)));
-    }
-
-    //check scheduled posts
-    public function check_scheduled_posts()
-    {
-        $date = date('Y-m-d H:i:s');
-        $sql = "SELECT * FROM posts WHERE is_scheduled = 1";
-        $query = $this->db->query($sql);
-        $posts = $query->result();
-        if (!empty($posts)) {
-            foreach ($posts as $post) {
-                if ($post->created_at <= $date) {
-                    $data = array(
-                        'is_scheduled' => 0,
-                    );
-                    $this->db->where('id', $post->id);
-                    $this->db->update('posts', $data);
-                }
-            }
-            reset_cache_data_on_change();
-
-            echo "All scheduled posts have been checked.";
-        } else {
-            echo "There are no scheduled posts.";
-        }
     }
 
     //publish draft

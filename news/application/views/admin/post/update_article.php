@@ -31,12 +31,6 @@
                                 <?php $this->load->view('admin/post/_upload_image_box'); ?>
                             </div>
                             <div class="col-sm-12">
-                                <?php $this->load->view('admin/post/_upload_additional_image_box'); ?>
-                            </div>
-                            <div class="col-sm-12">
-                                <?php $this->load->view('admin/post/_upload_file_box'); ?>
-                            </div>
-                            <div class="col-sm-12">
                                 <?php $this->load->view('admin/post/_post_owner_box'); ?>
                             </div>
                             <div class="col-sm-12">

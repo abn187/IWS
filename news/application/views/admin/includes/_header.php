@@ -232,9 +232,6 @@
                                 <a href="<?php echo admin_url(); ?>pending-posts"><?php echo trans("pending_posts"); ?></a>
                             </li>
                             <li>
-                                <a href="<?php echo admin_url(); ?>scheduled-posts"><?php echo trans("scheduled_posts"); ?></a>
-                            </li>
-                            <li>
                                 <a href="<?php echo admin_url(); ?>drafts"><?php echo trans("drafts"); ?></a>
                             </li>
                         </ul>

@@ -668,25 +668,7 @@ class Post_controller extends Admin_Core_Controller
         $this->load->view('admin/includes/_footer');
     }
 
-    /**
-     * Scheduled Posts
-     */
-    public function scheduled_posts()
-    {
-        check_permission('add_post');
-        $data['title'] = trans('scheduled_posts');
-        $data['authors'] = $this->auth_model->get_all_users();
-        $data['form_action'] = admin_url() . "scheduled-posts";
-        $data['admin_settings'] = $this->post_admin_model;
-
-        //get paginated posts
-        $pagination = $this->paginate(admin_url() . 'scheduled-posts', $this->post_admin_model->get_paginated_scheduled_posts_count());
-        $data['posts'] = $this->post_admin_model->get_paginated_scheduled_posts($pagination['per_page'], $pagination['offset']);
-
-        $this->load->view('admin/includes/_header', $data);
-        $this->load->view('admin/post/scheduled_posts', $data);
-        $this->load->view('admin/includes/_footer');
-    }
+   
 
     /**
      * Drafts

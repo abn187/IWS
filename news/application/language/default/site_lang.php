@@ -377,7 +377,6 @@ $lang["send_email"] = "Send Email";
 $lang["save"] = "Save";
 $lang["site_color"] = "Site Color";
 $lang["sitemap"] = "Sitemap";
-$lang["scheduled_posts"] = "Scheduled Posts";
 $lang["scheduled_post"] = "Scheduled Post";
 $lang["select_file"] = "Select File";
 $lang["show_on_menu"] = "Show on Menu";

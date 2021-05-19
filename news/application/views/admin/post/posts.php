@@ -33,7 +33,6 @@
                             <th width="20"><?php echo trans('id'); ?></th>
                             <th><?php echo trans('post'); ?></th>
                             <th><?php echo trans('language'); ?></th>
-                            <th><?php echo trans('post_type'); ?></th>
                             <th><?php echo trans('category'); ?></th>
                             <th><?php echo trans('author'); ?></th>
                             <?php if ($list_type == "slider_posts"): ?>
@@ -97,9 +96,6 @@
                                         echo html_escape($lang->name);
                                     }
                                     ?>
-                                </td>
-                                <td class="td-post-type">
-                                    <?php echo trans($item->post_type); ?>
                                 </td>
                                 <td>
                                     <?php $categories = get_parent_category_tree($item->category_id, $this->categories);

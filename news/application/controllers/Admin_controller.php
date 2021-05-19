@@ -24,7 +24,6 @@ class Admin_controller extends Admin_Core_Controller
         $data['pending_post_count'] = $this->post_admin_model->get_pending_posts_count();
         $data['admin_settings'] = $this->post_admin_model;
         $data['drafts_count'] = $this->post_admin_model->get_drafts_count();
-        $data['scheduled_post_count'] = $this->post_admin_model->get_scheduled_posts_count();
 
         $this->load->view('admin/includes/_header', $data);
         $this->load->view('admin/index', $data);

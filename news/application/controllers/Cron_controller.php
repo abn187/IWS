@@ -26,14 +26,7 @@ class Cron_controller extends Home_Core_Controller
         echo "All feeds have been checked.";
     }
 
-    /**
-     * Check Scheduled Posts
-     */
-    public function check_scheduled_posts()
-    {
-        get_method();
-        $this->post_admin_model->check_scheduled_posts();
-    }
+    
 
     /**
      * Update Sitemap

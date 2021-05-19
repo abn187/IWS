@@ -50,22 +50,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-xs-6">
-            <!-- small box -->
-            <div class="small-box admin-small-box bg-warning">
-                <div class="inner">
-                    <h3 class="increase-count"><?php echo $scheduled_post_count; ?></h3>
-                    <a href="<?php echo admin_url(); ?>scheduled-posts">
-                        <p><?php echo trans("scheduled_posts"); ?></p>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="<?php echo admin_url(); ?>scheduled-posts">
-                        <i class="fa fa-clock-o"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </div>
     <!-- /.row -->
 <?php endif; ?>

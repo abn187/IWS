@@ -94,7 +94,7 @@ $route['confirm']['GET'] = 'auth_controller/confirm_email';
 $route["unsubscribe"]['GET'] = 'auth_controller/unsubscribe';
 $route["cron/update-feeds"]['GET'] = 'cron_controller/check_feed_posts';
 $route["cron/update-sitemap"]['GET'] = 'cron_controller/update_sitemap';
-$route["cron/check-scheduled-posts"]['GET'] = 'cron_controller/check_scheduled_posts';
+
 
 //POST routes
 $route['forgot-password-post']['POST'] = 'auth_controller/forgot_password_post';
@@ -138,7 +138,6 @@ $route[$routes->admin . "/featured-posts"] = 'post_controller/featured_posts';
 $route[$routes->admin . "/breaking-news"] = 'post_controller/breaking_news';
 $route[$routes->admin . "/recommended-posts"] = 'post_controller/recommended_posts';
 $route[$routes->admin . "/pending-posts"] = 'post_controller/pending_posts';
-$route[$routes->admin . "/scheduled-posts"] = 'post_controller/scheduled_posts';
 $route[$routes->admin . "/drafts"] = 'post_controller/drafts';
 $route[$routes->admin . "/update-post/(:num)"] = 'post_controller/update_post/$1';
 
