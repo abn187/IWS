@@ -134,5 +134,5 @@ $autoload['language'] = array();
 $autoload['model'] = array('auth_model', 'settings_model', 'visual_settings_model', 'page_model', 'post_model', 'post_admin_model',
     'ad_model', 'category_model', 'tag_model', 'post_file_model', 'comment_model',
     'gallery_category_model', 'gallery_model', 'reading_list_model', 'contact_model', 'newsletter_model',
-    'widget_model', 'poll_model', 'navigation_model', 'rss_model', 'file_model', 'language_model', 'reaction_model', 'profile_model', 'post_item_model',
+    'widget_model', 'navigation_model', 'rss_model', 'file_model', 'language_model', 'reaction_model', 'profile_model', 'post_item_model',
     'quiz_model');
