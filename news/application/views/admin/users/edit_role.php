@@ -102,16 +102,6 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col-md-1 col-sm-2 col-xs-2">
-                            <input type="checkbox" name="polls" value="1" id="role_polls" class="square-purple" <?php echo ($role->polls == 1) ? 'checked' : ''; ?>>
-                        </div>
-                        <div class="col-md-11 col-sm-10 col-xs-10">
-                            <label for="role_polls" class="control-label cursor-pointer"><?php echo trans('polls'); ?></label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-1 col-sm-2 col-xs-2">
                             <input type="checkbox" name="gallery" value="1" id="role_gallery" class="square-purple" <?php echo ($role->gallery == 1) ? 'checked' : ''; ?>>
                         </div>
                         <div class="col-md-11 col-sm-10 col-xs-10">

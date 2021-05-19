@@ -561,7 +561,6 @@ class Auth_model extends CI_Model
             'rss_feeds' => $this->input->post('rss_feeds', true) == 1 ? 1 : 0,
             'categories' => $this->input->post('categories', true) == 1 ? 1 : 0,
             'widgets' => $this->input->post('widgets', true) == 1 ? 1 : 0,
-            'polls' => $this->input->post('polls', true) == 1 ? 1 : 0,
             'gallery' => $this->input->post('gallery', true) == 1 ? 1 : 0,
             'comments_contact' => $this->input->post('comments_contact', true) == 1 ? 1 : 0,
             'newsletter' => $this->input->post('newsletter', true) == 1 ? 1 : 0,

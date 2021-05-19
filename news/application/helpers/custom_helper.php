@@ -632,21 +632,6 @@ if (!function_exists('get_subcomments')) {
     }
 }
 
-//calculate total vote of poll option
-if (!function_exists('calculate_total_vote_poll_option')) {
-    function calculate_total_vote_poll_option($poll)
-    {
-        $total = 0;
-        if (!empty($poll)) {
-            for ($i = 1; $i <= 10; $i++) {
-                $op = "option{$i}_vote_count";
-                $total += $poll->$op;
-            }
-        }
-        return $total;
-    }
-}
-
 //date format
 if (!function_exists('helper_date_format')) {
     function helper_date_format($datetime)

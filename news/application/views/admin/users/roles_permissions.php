@@ -57,9 +57,6 @@
                                         <?php if ($role->widgets == 1): ?>
                                             <label class="label label-default"><?php echo trans("widgets") ?></label>
                                         <?php endif; ?>
-                                        <?php if ($role->polls == 1): ?>
-                                            <label class="label label-default"><?php echo trans("polls") ?></label>
-                                        <?php endif; ?>
                                         <?php if ($role->gallery == 1): ?>
                                             <label class="label label-default"><?php echo trans("gallery") ?></label>
                                         <?php endif; ?>

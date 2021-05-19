@@ -156,10 +156,6 @@ $route[$routes->admin . "/update-subcategory/(:num)"] = 'category_controller/upd
 $route[$routes->admin . "/add-widget"] = 'widget_controller/add_widget';
 $route[$routes->admin . "/widgets"] = 'widget_controller/widgets';
 $route[$routes->admin . "/update-widget/(:num)"] = 'widget_controller/update_widget/$1';
-//poll
-$route[$routes->admin . "/add-poll"] = 'poll_controller/add_poll';
-$route[$routes->admin . "/polls"] = 'poll_controller/polls';
-$route[$routes->admin . "/update-poll/(:num)"] = 'poll_controller/update_poll/$1';
 //gallery
 $route[$routes->admin . "/gallery-categories"] = 'category_controller/gallery_categories';
 $route[$routes->admin . "/gallery-albums"] = 'gallery_controller/gallery_albums';
