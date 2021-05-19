@@ -76,11 +76,11 @@ class Language_model extends CI_Model
         //add settings
         $settings = array(
             'lang_id' => $lang_id,
-            'site_title' => "Varient - News Magazine",
+            'site_title' => "HANU FIT",
             'home_title' => "Index",
-            'site_description' => "Varient - News Magazine",
-            'keywords' => "Varient, News, Magazine",
-            'application_name' => "Varient",
+            'site_description' => "IWS News",
+            'keywords' => "IWS, News",
+            'application_name' => "IWS News",
             'primary_font' => 19,
             'secondary_font' => 25,
             'tertiary_font' => 32,

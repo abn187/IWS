@@ -9,16 +9,7 @@
     <div class="box-body">
 
         <?php if (!empty($post)): ?>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <label class="control-label"><?php echo trans('scheduled_post'); ?></label>
-                    </div>
-                    <div class="col-md-5 col-sm-12 col-xs-12 text-right">
-                        <input type="checkbox" name="scheduled_post" value="1" id="cb_scheduled" class="square-purple" <?php echo ($post->is_scheduled == 1) ? 'checked' : ''; ?>>
-                    </div>
-                </div>
-            </div>
+            
             <div class="form-group">
                 <div class="row">
                     <div class="col-sm-12">
@@ -39,16 +30,7 @@
                 <button type="submit" name="publish" value="0" class="btn btn-primary pull-right" onclick="allow_submit_form = true;"><?php echo trans('save_changes'); ?></button>
             </div>
         <?php else: ?>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-7 col-sm-12 col-xs-12">
-                        <label class="control-label"><?php echo trans('scheduled_post'); ?></label>
-                    </div>
-                    <div class="col-md-5 col-sm-12 col-xs-12 text-right">
-                        <input type="checkbox" name="scheduled_post" value="1" id="cb_scheduled" class="square-purple">
-                    </div>
-                </div>
-            </div>
+            
             <div id="date_published_content" class="form-group">
                 <div class="row">
                     <div class="col-sm-12">

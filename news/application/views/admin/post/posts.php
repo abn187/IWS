@@ -73,10 +73,6 @@
                                                         <label class="label bg-olive label-table"><?php echo trans('featured'); ?></label>
                                                     <?php endif; ?>
 
-                                                    <?php if ($item->is_recommended): ?>
-                                                        <label class="label bg-aqua label-table"><?php echo trans('recommended'); ?></label>
-                                                    <?php endif; ?>
-
                                                     <?php if ($item->is_breaking): ?>
                                                         <label class="label bg-teal label-table"><?php echo trans('breaking'); ?></label>
                                                     <?php endif; ?>
@@ -207,19 +203,7 @@
                                                         </button>
                                                     </li>
                                                 <?php endif; ?>
-                                                <?php if ($item->is_recommended == 1): ?>
-                                                    <li>
-                                                        <button type="submit" name="option" value="add-remove-from-recommended" class="btn-list-button">
-                                                            <i class="fa fa-times option-icon"></i><?php echo trans('remove_recommended'); ?>
-                                                        </button>
-                                                    </li>
-                                                <?php else: ?>
-                                                    <li>
-                                                        <button type="submit" name="option" value="add-remove-from-recommended" class="btn-list-button">
-                                                            <i class="fa fa-plus option-icon"></i><?php echo trans('add_recommended'); ?>
-                                                        </button>
-                                                    </li>
-                                                <?php endif; ?>
+                                                
                                             <?php endif; ?>
                                             <li>
                                                 <a href="javascript:void(0)" onclick="delete_item('post_controller/delete_post','<?php echo $item->id; ?>','<?php echo trans("confirm_post"); ?>');"><i class="fa fa-trash option-icon"></i><?php echo trans('delete'); ?></a>
@@ -258,13 +242,11 @@
                                     <?php if ($list_type != 'breaking_news'): ?>
                                         <button class="btn btn-sm btn-default btn-table-delete" onclick="post_bulk_options('add_breaking');"><i class="fa fa-plus option-icon"></i><?php echo trans('add_breaking'); ?></button>
                                     <?php endif; ?>
-                                    <?php if ($list_type != 'recommended_posts'): ?>
-                                        <button class="btn btn-sm btn-default btn-table-delete" onclick="post_bulk_options('add_recommended');"><i class="fa fa-plus option-icon"></i><?php echo trans('add_recommended'); ?></button>
-                                    <?php endif; ?>
+                                    
                                     <button class="btn btn-sm btn-default btn-table-delete" onclick="post_bulk_options('remove_slider');"><i class="fa fa-minus option-icon"></i><?php echo trans('remove_slider'); ?></button>
                                     <button class="btn btn-sm btn-default btn-table-delete" onclick="post_bulk_options('remove_featured');"><i class="fa fa-minus option-icon"></i><?php echo trans('remove_featured'); ?></button>
                                     <button class="btn btn-sm btn-default btn-table-delete" onclick="post_bulk_options('remove_breaking');"><i class="fa fa-minus option-icon"></i><?php echo trans('remove_breaking'); ?></button>
-                                    <button class="btn btn-sm btn-default btn-table-delete" onclick="post_bulk_options('remove_recommended');"><i class="fa fa-minus option-icon"></i><?php echo trans('remove_recommended'); ?></button>
+                                    
                                 </div>
                             <?php endif; ?>
                         </div>

@@ -68,10 +68,6 @@
                                                     <label class="label bg-olive label-table"><?php echo trans('featured'); ?></label>
                                                 <?php endif; ?>
 
-                                                <?php if ($item->is_recommended): ?>
-                                                    <label class="label bg-aqua label-table"><?php echo trans('recommended'); ?></label>
-                                                <?php endif; ?>
-
                                                 <?php if ($item->is_breaking): ?>
                                                     <label class="label bg-teal label-table"><?php echo trans('breaking'); ?></label>
                                                 <?php endif; ?>

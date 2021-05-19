@@ -123,20 +123,7 @@
             <input type="hidden" name="is_slider" value="0">
         <?php endif; ?>
 
-        <?php if (check_user_permission('manage_all_posts')): ?>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <label class="control-label"><?php echo trans('add_recommended'); ?></label>
-                    </div>
-                    <div class="col-md-8 col-sm-12">
-                        <input type="checkbox" name="is_recommended" value="1" class="square-purple" <?php echo (old('is_recommended') == 1) ? 'checked' : ''; ?>>
-                    </div>
-                </div>
-            </div>
-        <?php else: ?>
-            <input type="hidden" name="is_recommended" value="0">
-        <?php endif; ?>
+        
 
         <div class="form-group">
             <div class="row">

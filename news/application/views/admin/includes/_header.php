@@ -78,7 +78,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"></span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b><?php echo html_escape($this->settings->application_name); ?></b> <?php echo trans("panel"); ?></span>
+            <span class="logo-lg"><b><?php echo trans("panel"); ?></b> </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -224,9 +224,7 @@
                                 <li>
                                     <a href="<?php echo admin_url(); ?>breaking-news"><?php echo trans("breaking_news"); ?></a>
                                 </li>
-                                <li>
-                                    <a href="<?php echo admin_url(); ?>recommended-posts"><?php echo trans("recommended_posts"); ?></a>
-                                </li>
+                                
                             <?php endif; ?>
                             <li>
                                 <a href="<?php echo admin_url(); ?>pending-posts"><?php echo trans("pending_posts"); ?></a>
@@ -237,22 +235,7 @@
                         </ul>
                     </li>
                 <?php endif; ?>
-                <?php if (check_user_permission('rss_feeds')): ?>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-rss"></i> <span><?php echo trans("rss_feeds"); ?></span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="<?php echo admin_url(); ?>import-feed"><?php echo trans("import_rss_feed"); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo admin_url(); ?>feeds"><?php echo trans("rss_feeds"); ?></a>
-                            </li>
-
-                        </ul>
-                    </li>
-                <?php endif; ?>
+                
                 <?php if (check_user_permission('categories')): ?>
                     <li class="treeview">
                         <a href="#">
@@ -262,9 +245,7 @@
                             <li>
                                 <a href="<?php echo admin_url(); ?>categories"><?php echo trans("categories"); ?></a>
                             </li>
-                            <li>
-                                <a href="<?php echo admin_url(); ?>subcategories"><?php echo trans("subcategories"); ?></a>
-                            </li>
+                            
                         </ul>
                     </li>
                 <?php endif; ?>
@@ -283,39 +264,8 @@
                         </ul>
                     </li>
                 <?php endif; ?>
-                <?php if (check_user_permission('polls')): ?>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-list"></i> <span><?php echo trans("polls"); ?></span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="<?php echo admin_url(); ?>add-poll"><?php echo trans("add_poll"); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo admin_url(); ?>polls"><?php echo trans("polls"); ?></a>
-                            </li>
-                        </ul>
-                    </li>
-                <?php endif; ?>
-                <?php if (check_user_permission('gallery')): ?>
-                    <li class="treeview">
-                        <a href="#">
-                            <i class="fa fa-image"></i> <span><?php echo trans("gallery"); ?></span><span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li>
-                                <a href="<?php echo admin_url(); ?>gallery"><?php echo trans("images"); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo admin_url(); ?>gallery-albums"><?php echo trans("albums"); ?></a>
-                            </li>
-                            <li>
-                                <a href="<?php echo admin_url(); ?>gallery-categories"><?php echo trans("categories"); ?></a>
-                            </li>
-                        </ul>
-                    </li>
-                <?php endif; ?>
+                
+                
                 <?php if (check_user_permission('comments_contact')): ?>
                     <li>
                         <a href="<?php echo admin_url(); ?>contact-messages">
@@ -352,14 +302,7 @@
                         </ul>
                     </li>
                 <?php endif; ?>
-                <?php if (check_user_permission('ad_spaces')): ?>
-                    <li>
-                        <a href="<?php echo admin_url(); ?>ad-spaces">
-                            <i class="fa fa-dollar" aria-hidden="true"></i>
-                            <span><?php echo trans("ad_spaces"); ?></span>
-                        </a>
-                    </li>
-                <?php endif; ?>
+                
                 <?php if (check_user_permission('users')): ?>
                     <li class="treeview">
                         <a href="#">
@@ -391,21 +334,9 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <?php if (is_admin()): ?>
-                    <li>
-                        <a href="<?php echo admin_url(); ?>social-login-configuration"><i class="fa fa-share-alt"></i>
-                            <span><?php echo trans("social_login_configuration"); ?></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?php echo admin_url(); ?>cache-system">
-                            <i class="fa fa-database"></i>
-                            <span><?php echo trans("cache_system"); ?></span>
-                        </a>
-                    </li>
-                <?php endif; ?>
+                
 
-                <?php if (check_user_permission('settings')): ?>
+                <!-- <?php if (check_user_permission('settings')): ?>
                     <li class="header"><?php echo trans("settings"); ?></li>
                     <li>
                         <a href="<?php echo admin_url(); ?>preferences">
@@ -448,7 +379,7 @@
                             <span><?php echo trans("general_settings"); ?></span>
                         </a>
                     </li>
-                <?php endif; ?>
+                <?php endif; ?> -->
             </ul>
         </section>
         <!-- /.sidebar -->

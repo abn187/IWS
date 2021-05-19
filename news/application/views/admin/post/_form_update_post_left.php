@@ -156,20 +156,7 @@
         <?php endif; ?>
 
 
-        <?php if (check_user_permission('manage_all_posts')): ?>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12">
-                        <label class="control-label"><?php echo trans('add_recommended'); ?></label>
-                    </div>
-                    <div class="col-md-8 col-sm-12">
-                        <input type="checkbox" name="is_recommended" value="1" class="square-purple" <?php echo ($post->is_recommended == 1) ? 'checked' : ''; ?>>
-                    </div>
-                </div>
-            </div>
-        <?php else: ?>
-            <input type="hidden" name="is_recommended" value="<?php echo $post->is_recommended; ?>">
-        <?php endif; ?>
+        
 
         
         <?php if ($post->post_type == 'sorted_list' || $post->post_type == 'gallery'): ?>

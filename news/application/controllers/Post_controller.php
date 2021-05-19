@@ -34,7 +34,7 @@ class Post_controller extends Admin_Core_Controller
     {
         check_permission('add_post');
         $type = $this->input->get('type', true);
-        if ($type != 'article' && $type != 'gallery' && $type != 'sorted_list' && $type != 'video' && $type != 'audio' && $type != 'trivia_quiz' && $type != 'personality_quiz') {
+        if ($type != 'article' ) {
             redirect(admin_url() . 'post-format');
             exit();
         }
@@ -49,9 +49,7 @@ class Post_controller extends Admin_Core_Controller
         $data['parent_categories'] = $this->category_model->get_parent_categories_by_lang($this->selected_lang->id);
 
         $view = $title;
-        if ($type == 'trivia_quiz' || $type == 'personality_quiz') {
-            $view = 'quiz/' . $title;
-        }
+        
         $this->load->view('admin/includes/_header', $data);
         $this->load->view('admin/post/' . $view, $data);
         $this->load->view('admin/includes/_footer');
@@ -67,7 +65,7 @@ class Post_controller extends Admin_Core_Controller
         $this->form_validation->set_rules('title', trans("title"), 'required|xss_clean|max_length[500]');
         $this->form_validation->set_rules('summary', trans("summary"), 'xss_clean|max_length[5000]');
         $this->form_validation->set_rules('category_id', trans("category"), 'required');
-        $this->form_validation->set_rules('optional_url', trans("optional_url"), 'xss_clean|max_length[1000]');
+        
 
         if ($this->form_validation->run() === false) {
             $this->session->set_flashdata('errors', validation_errors());
