@@ -719,7 +719,39 @@ class Home_controller extends Home_Core_Controller
         echo json_encode($data);
     }
 
- 
+    /**
+     * Add Poll Vote
+     */
+    public function add_vote()
+    {
+        post_method();
+        $poll_id = clean_number($this->input->post('poll_id', true));
+        $vote_permission = clean_number($this->input->post('vote_permission', true));
+        $option = $this->input->post('option', true);
+        if (is_null($option)) {
+            echo "required";
+        } else {
+            if ($vote_permission == "all") {
+                $result = $this->poll_model->add_unregistered_vote($poll_id, $option);
+                if ($result == "success") {
+                    $data["poll"] = $this->poll_model->get_poll($poll_id);
+                    $this->load->view('partials/_poll_results', $data);
+                } else {
+                    echo "voted";
+                }
+            } else {
+                $user_id = user()->id;
+                $result = $this->poll_model->add_registered_vote($poll_id, $user_id, $option);
+                if ($result == "success") {
+                    $data["poll"] = $this->poll_model->get_poll($poll_id);
+                    $this->load->view('partials/_poll_results', $data);
+                } else {
+                    echo "voted";
+                }
+            }
+        }
+    }
+
     /**
      * Add to Newsletter
      */

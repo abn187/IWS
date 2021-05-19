@@ -143,7 +143,6 @@ class Home_Core_Controller extends Core_Controller
             set_cache_data('random_tags', $this->random_tags);
         }
 
-        $this->polls = $this->poll_model->get_polls();
         $this->ads = $this->ad_model->get_ads();
 
         //recaptcha status
