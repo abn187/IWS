@@ -93,13 +93,7 @@ class Post_controller extends Admin_Core_Controller
                     $this->post_file_model->add_post_audios($last_id);
                 } elseif ($post_type == "article") {
                     $this->post_file_model->add_post_additional_images($last_id);
-                } elseif ($post_type == 'trivia_quiz') {
-                    $this->quiz_model->add_quiz_questions($last_id);
-                    $this->quiz_model->add_quiz_results($last_id);
-                } elseif ($post_type == 'personality_quiz') {
-                    $this->quiz_model->add_quiz_results($last_id);
-                    $this->quiz_model->add_quiz_questions($last_id);
-                }
+                } 
                 //add post files
                 if ($post_type != 'gallery' && $post_type != 'sorted_list') {
                     $this->post_file_model->add_post_files($last_id);
@@ -152,7 +146,6 @@ class Post_controller extends Admin_Core_Controller
         }
 
         $data['categories'] = $this->category_model->get_parent_categories_by_lang($data['post']->lang_id);
-        $data['subcategories'] = $this->category_model->get_subcategories_by_parent_id($data['parent_category_id']);
 
         $data['post_list_items'] = $this->post_item_model->get_post_list_items($data['post']->id, $data['post']->post_type);
 
@@ -195,23 +188,9 @@ class Post_controller extends Admin_Core_Controller
                 //update post tags
                 $this->tag_model->update_post_tags($post_id);
                 //post types
-                if ($post_type == 'gallery') {
-                    //insert gallery items
-                    $this->post_item_model->update_post_list_items($post_id, 'gallery');
-                } elseif ($post_type == "sorted_list") {
-                    //insert sorted list items
-                    $this->post_item_model->update_post_list_items($post_id, 'sorted_list');
-                } elseif ($post_type == "audio") {
-                    $this->post_file_model->add_post_audios($post_id);
-                } elseif ($post_type == "article") {
+               if ($post_type == "article") {
                     $this->post_file_model->add_post_additional_images($post_id);
-                } elseif ($post_type == 'trivia_quiz') {
-                    $this->quiz_model->update_quiz_questions($post_id);
-                    $this->quiz_model->update_quiz_results($post_id);
-                } elseif ($post_type == 'personality_quiz') {
-                    $this->quiz_model->update_quiz_results($post_id);
-                    $this->quiz_model->update_quiz_questions($post_id);
-                }
+                } 
 
                 //add post files
                 if ($post_type != 'gallery' && $post_type != 'sorted_list') {
@@ -287,208 +266,7 @@ class Post_controller extends Admin_Core_Controller
         }
         echo json_encode($data);
     }
-
-
-    /*
-    *-------------------------------------------------------------------------------------------------
-    * AUDIO
-    *-------------------------------------------------------------------------------------------------
-    */
-
-    /**
-     * Delete Post Audio
-     */
-    public function delete_post_audio()
-    {
-        $post_audio_id = $this->input->post('post_audio_id', true);
-        $this->post_file_model->delete_post_audio($post_audio_id);
-    }
-
-    /*
-    *-------------------------------------------------------------------------------------------------
-    * VIDEO
-    *-------------------------------------------------------------------------------------------------
-    */
-
-    /**
-     * Get Video from URL
-     */
-    public function get_video_from_url()
-    {
-        $url = $this->input->post('url', true);
-        $this->load->model('video_model');
-        $data = array(
-            'video_embed_code' => $this->video_model->get_video_embed_code($url),
-            'video_thumbnail' => $this->video_model->get_video_thumbnail($url),
-        );
-        echo json_encode($data);
-    }
-
-    /**
-     * Get Video Thumbnail
-     */
-    public function get_video_thumbnail()
-    {
-        $url = $this->input->post('url', true);
-        echo $this->file_model->get_video_thumbnail($url);
-    }
-
-    /**
-     * Delete Video
-     */
-    public function delete_post_video()
-    {
-        $post_id = $this->input->post('post_id', true);
-        $this->post_file_model->delete_post_video($post_id);
-    }
-
-    /*
-    *-------------------------------------------------------------------------------------------------
-    * QUIZ
-    *-------------------------------------------------------------------------------------------------
-    */
-
-    /**
-     * Get Quiz Question HTML
-     */
-    public function get_quiz_question_html()
-    {
-        $post_type = $this->input->post('post_type', true);
-        $new_question_order = $this->input->post('new_question_order', true);
-        $vars = array('post_type' => $post_type, 'new_question_order' => $new_question_order);
-        $data = array(
-            'result' => 1,
-            'html' => $this->load->view('admin/post/quiz/_add_question', $vars, true)
-        );
-        echo json_encode($data);
-    }
-
-    /**
-     * Add Quiz Question
-     */
-    public function add_quiz_question()
-    {
-        $post_id = $this->input->post('post_id', true);
-        $post_type = $this->input->post('post_type', true);
-        $question_id = $this->quiz_model->add_quiz_question($post_id);
-        $question = $this->quiz_model->get_quiz_question($question_id);
-        if (!empty($question)) {
-            $vars = array('post_type' => $post_type, 'question' => $question);
-            $data = array(
-                'result' => 1,
-                'html' => $this->load->view('admin/post/quiz/_update_question', $vars, true)
-            );
-        } else {
-            $data = array(
-                'result' => 0,
-                'html' => ""
-            );
-        }
-        echo json_encode($data);
-    }
-
-    /**
-     * Delete Quiz Question
-     */
-    public function delete_quiz_question()
-    {
-        $question_id = $this->input->post('question_id', true);
-        $this->quiz_model->delete_quiz_question($question_id);
-    }
-
-    /**
-     * Get Quiz Result HTML
-     */
-    public function get_quiz_result_html()
-    {
-        $post_type = $this->input->post('post_type', true);
-        $vars = array('post_type' => $post_type);
-        $data = array(
-            'result' => 1,
-            'html' => $this->load->view('admin/post/quiz/_add_result', $vars, true)
-        );
-        echo json_encode($data);
-    }
-
-    /**
-     * Add Quiz Result
-     */
-    public function add_quiz_result()
-    {
-        $post_id = $this->input->post('post_id', true);
-        $post_type = $this->input->post('post_type', true);
-        $result_id = $this->quiz_model->add_quiz_result($post_id);
-        $result = $this->quiz_model->get_quiz_result($result_id);
-        if (!empty($result)) {
-            $vars = array('result' => $result, 'post_type' => $post_type);
-            $data = array(
-                'result' => 1,
-                'html' => $this->load->view('admin/post/quiz/_update_result', $vars, true)
-            );
-        } else {
-            $data = array(
-                'result' => 0,
-                'html' => ""
-            );
-        }
-        echo json_encode($data);
-    }
-
-    /**
-     * Delete Quiz Result
-     */
-    public function delete_quiz_result()
-    {
-        $result_id = $this->input->post('result_id', true);
-        $this->quiz_model->delete_quiz_result($result_id);
-    }
-
-    /**
-     * Get Quiz Answer HTML
-     */
-    public function get_quiz_answer_html()
-    {
-        $post_type = $this->input->post('post_type', true);
-        $vars = array('post_type' => $post_type, 'question_id' => $this->input->post('question_id', true));
-        $data = array(
-            'result' => 1,
-            'html' => $this->load->view('admin/post/quiz/_add_answer', $vars, true)
-        );
-        echo json_encode($data);
-    }
-
-    /**
-     * Add Quiz Question Answer
-     */
-    public function add_quiz_question_answer()
-    {
-        $question_id = $this->input->post('question_id', true);
-        $post_type = $this->input->post('post_type', true);
-        $answer_id = $this->quiz_model->add_quiz_question_answer($question_id);
-        $answer = $this->quiz_model->get_quiz_question_answer($answer_id);
-        if (!empty($answer)) {
-            $vars = array('post_type' => $post_type, 'answer' => $answer);
-            $data = array(
-                'result' => 1,
-                'html' => $this->load->view('admin/post/quiz/_update_answer', $vars, true)
-            );
-        } else {
-            $data = array(
-                'result' => 0,
-                'html' => ""
-            );
-        }
-        echo json_encode($data);
-    }
-
-    /**
-     * Delete Quiz Question Answer
-     */
-    public function delete_quiz_question_answer()
-    {
-        $answer_id = $this->input->post('answer_id', true);
-        $this->quiz_model->delete_quiz_question_answer($answer_id);
-    }
+    
 
     /*
     *-------------------------------------------------------------------------------------------------
