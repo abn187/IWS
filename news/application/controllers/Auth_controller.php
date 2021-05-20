@@ -46,18 +46,18 @@ class Auth_controller extends Home_Core_Controller
         }
     }
 
-    /**
-     * Connect with Facebook
-     */
-    public function connect_with_facebook()
-    {
-        get_method();
-        $fb_url = "https://www.facebook.com/v3.3/dialog/oauth?client_id=" . $this->general_settings->facebook_app_id . "&redirect_uri=" . base_url() . "facebook-callback&scope=email&state=" . generate_unique_id();
+    // /**
+    //  * Connect with Facebook
+    //  */
+    // public function connect_with_facebook()
+    // {
+    //     get_method();
+    //     $fb_url = "https://www.facebook.com/v3.3/dialog/oauth?client_id=" . $this->general_settings->facebook_app_id . "&redirect_uri=" . base_url() . "facebook-callback&scope=email&state=" . generate_unique_id();
 
-        $this->session->set_userdata('fb_login_referrer', $this->agent->referrer());
-        redirect($fb_url);
-        exit();
-    }
+    //     $this->session->set_userdata('fb_login_referrer', $this->agent->referrer());
+    //     redirect($fb_url);
+    //     exit();
+    // }
 
     /**
      * Facebook Callback

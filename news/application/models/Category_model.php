@@ -35,27 +35,6 @@ class Category_model extends CI_Model
         return $this->db->insert('categories', $data);
     }
 
-    //add subcategory
-    public function add_subcategory()
-    {
-        $data = $this->input_values();
-
-        $category = $this->get_category($data["parent_id"]);
-        if ($category) {
-            $data["color"] = $category->color;
-        } else {
-            $data["color"] = "#0a0a0a";
-        }
-
-        if (empty($data["name_slug"])) {
-            //slug for title
-            $data["name_slug"] = str_slug($data["name"]);
-        } else {
-            $data["name_slug"] = remove_special_characters($data["name_slug"], true);
-        }
-        $data['created_at'] = date('Y-m-d H:i:s');
-        return $this->db->insert('categories', $data);
-    }
 
     //update slug
     public function update_slug($id)
@@ -137,29 +116,6 @@ class Category_model extends CI_Model
         return $query->result();
     }
 
-    //get subcategories
-    public function get_subcategories()
-    {
-        $query = $this->db->query("SELECT * FROM categories WHERE categories.parent_id != 0");
-        return $query->result();
-    }
-
-    //get subcategories by lang
-    public function get_subcategories_by_lang($lang_id)
-    {
-        $sql = "SELECT * FROM categories WHERE categories.parent_id != 0 AND categories.lang_id =  ?";
-        $query = $this->db->query($sql, array(clean_number($lang_id)));
-        return $query->result();
-    }
-
-    //get subcategories by parent id
-    public function get_subcategories_by_parent_id($parent_id)
-    {
-        $sql = "SELECT * FROM categories WHERE categories.parent_id = ?";
-        $query = $this->db->query($sql, array(clean_number($parent_id)));
-        return $query->result();
-    }
-
     //get category count
     public function get_category_count()
     {
@@ -195,21 +151,6 @@ class Category_model extends CI_Model
 
         $this->db->where('id', $id);
         return $this->db->update('categories', $data);
-    }
-
-    //update subcategory color
-    public function update_subcategories_color($parent_id, $color)
-    {
-        $categories = $this->get_subcategories_by_parent_id($parent_id);
-        if (!empty($categories)) {
-            foreach ($categories as $item) {
-                $data = array(
-                    'color' => $color,
-                );
-                $this->db->where('parent_id', $parent_id);
-                return $this->db->update('categories', $data);
-            }
-        }
     }
 
     //delete category
